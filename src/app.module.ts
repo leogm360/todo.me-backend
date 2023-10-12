@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { PrismaModule } from '@/prisma';
 import { configs, configSchema } from '@/configs';
 
 @Module({
@@ -16,6 +17,7 @@ import { configs, configSchema } from '@/configs';
         abortEarly: false,
       },
     }),
+    PrismaModule,
   ],
   controllers: [AppController],
   providers: [AppService, ConfigService],
